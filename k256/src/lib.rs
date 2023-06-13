@@ -5,6 +5,13 @@
     html_logo_url = "https://raw.githubusercontent.com/RustCrypto/meta/master/logo.svg",
     html_favicon_url = "https://raw.githubusercontent.com/RustCrypto/meta/master/logo.svg"
 )]
+
+#![cfg_attr(all(target_os = "zkvm", target_arch = "riscv32"), deny(unsafe_code))]
+#![cfg_attr(
+    not(all(target_os = "zkvm", target_arch = "riscv32")),
+    forbid(unsafe_code)
+)]
+
 #![allow(clippy::needless_range_loop)]
 #![forbid(unsafe_code)]
 #![warn(
